@@ -1,10 +1,12 @@
 require('./models/User');
 require('./models/Store');
+require('./models/Fav_List');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
 const storeList = require('./handlers/storeList');
+const favList = require('./handlers/favList');
 const requireAuth = require('./middlewares/requireAuth');
 
 const app = express();
@@ -50,6 +52,7 @@ app.get('/', requireAuth, (req, res) => {
 
 app.use(authRoutes);
 app.use(storeList);
+app.use(favList);
 
 app.listen(3000, () => {
     console.log('Listening on port 3000');

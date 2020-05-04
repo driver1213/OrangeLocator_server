@@ -1,21 +1,16 @@
 const mongoose = require('mongoose');
 
-const coordSchema = new mongoose.Schema({
-    coords: {
-        x: Number,
-        y: Number
-    }
-})
-
-
-
-
 const locationSchema = new mongoose.Schema({
     name: String,
+    info: {
+        phone: String,
+        address: String
+    },
     wifiMacAddress: String,
     imgUrl: String,
     category: String,
-    locations: [coordSchema]
+    latitude: Number,
+    longitude: Number
 })
 
 module.exports = mongoose.model('Store', locationSchema);
