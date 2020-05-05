@@ -20,10 +20,7 @@ router.post('/stores', (req, res) => {
     let newStore = new Store({
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
-        info: {
-            phone: req.body.phone,
-            address: req.body.address
-        },
+        info: req.body.info,
         wifiMacAddress: req.body.wifiMacAddress,
         imgUrl: req.body.imgUrl,
         category: req.body.category,

@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
 
+const infoSchema = new mongoose.Schema({
+    phone: String,
+    address: String
+});
+
 const locationSchema = new mongoose.Schema({
     name: String,
     info: {
-        phone: String,
-        address: String
+        type: Object,
+        infoSchema
     },
     wifiMacAddress: String,
     imgUrl: String,
